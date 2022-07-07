@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# display commands to obtain fully interactive shell
+
+Frame='\033[0;32m'   # Green
+Link='\033[0;35m'  	 # Purple
+Title='\033[1;33m' 	 # Bold Yellow
+Comment='\033[0;36m' # Cyan
+End='\033[0m'		 # No Color
+Point='\033[0;31m[*]\033[0m'
+
+echo -e "${Frame}###${End} ${Title}Linux Shell Stabilization${End} ${Frame}###${End}"
+
+echo -e "python -c 'import pty;pty.spawn(\"/bin/bash\")'"
+echo -e "python2 -c 'import pty;pty.spawn(\"/bin/bash\")' ${Comment}# python2${End}"
+echo -e "python3 -c 'import pty;pty.spawn(\"/bin/bash\")' ${Comment}# python3${End}"
+echo -e "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/game:/tmp"
+echo -e "export SHELL=bash"
+echo -e "export TERM=xterm-256color"
+echo -e "${Comment}[Ctrl+Z]${End}"
+echo -e "stty raw -echo; fg; reset"
+echo -e "stty rows 38 columns 116"
