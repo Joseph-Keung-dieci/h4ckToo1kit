@@ -1,0 +1,20 @@
+#!/bin/bash
+
+BYellow='\033[1;33m' # Bold Yello
+NC='\033[0m'		 # No Color
+
+
+# Looting for Passwords
+echo -e "${BYellow}Looting for Passwords${NC}"
+echo "grep --color=auto -rnw '/' -ie \"pass\" --color=always 2>/dev/null"
+
+
+# Find SUID binaries
+echo -e "${BYellow}Find SUID Binaries${NC}"
+echo "find / -uid 0 -perm -4000 -type f -exec ls -la {} 2>/dev/null \;"
+
+
+# Find Writable Files
+echo -e "${BYellow}Find Writable Files${NC}"
+echo "find / -perm -2 -type f -exec ls -la {} 2>/dev/null \;""
+
