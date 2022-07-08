@@ -9,6 +9,16 @@ Comment='\033[0;36m' # Cyan
 End='\033[0m'		 # No Color
 Point='\033[0;31m[*]\033[0m'
 
+echo -e "${Frame}###${End} ${Title}References${End} ${Frame}###${End}"
+echo -e "${Link}https://book.hacktricks.xyz/windows-hardening/windows-local-privilege-escalation${End}"
+echo -e ""
+
+
+echo -e "${Frame}###${End} ${Title}Setup CMD${End} ${Frame}###${End}"
+echo -e "${Point} set PATH=%PATH%;C:\\\Users\\\Public\\\Documents"
+echo -e ""
+
+
 echo -e "${Frame}###${End} ${Title}System Info Enum${End} ${Frame}###${End}"
 echo -e "${Point} systeminfo | findstr /B /C:\"OS Name\" /C:\"OS Version\" ${Comment}# os name & version${End}"
 echo -e "${Point} wmic os get osarchitecture || echo %PROCESSOR_ARCHITECTURE% ${Comment}# system architecture${End}"
@@ -16,10 +26,58 @@ echo -e "${Point} wmic qfe get Caption,Description,HotFixID,InstalledOn ${Commen
 echo -e ""
 
 
+
+echo -e "${Frame}###${End} ${Title}User & Group Enum${End} ${Frame}###${End}"
+echo -e "${Point} net users ${Comment}# list all local users${End}"
+echo -e "${Point} net localgroup ${Comment}#list all groups${End}"
+echo -e "${Point} net localgroup Administrators ${Comment}# list who is inside Administrators group${End}"
+echo -e "${Point} whoami /all ${Comment}# check privileges${End}"
+echo -e "${Point} net accounts ${Comment}# password policy${End}"
+echo -e ""
+
+
+echo -e "${Frame}###${End} ${Title}Network Enum${End} ${Frame}###${End}"
+echo -e "${Point} netstat -ano ${Comment}# open ports${End}"
+echo -e "${Point} route print ${Comment}# route table${End}"
+echo -e "${Point} type C:\\\Windows\\\System32\\\drivers\\\etc\\\hosts ${Comment}# host file${End}"
+echo -e ""
+
+
+echo -e "${Frame}###${End} ${Title}Running Processes Enum${End} ${Frame}###${End}"
+echo -e "${Point} tasklist /svc"
+echo -e "${Point} tasklist /fi \"USERNAME ne NT AUTHORITY\SYSTEM\""
+echo -e ""
+
+
+echo -e "${Frame}###${End} ${Title}Services Enum${End} ${Frame}###${End}"
+echo -e "${Point} net start"
+echo -e "${Point} wmic service list brief"
+echo -e "${Point} sc query"
+echo -e "${Point} sc qc \$service"
+echo -e "${Point} accesschk.exe -ucqv \$service"
+echo -e "${Point} accesschk.exe -uwcqv \"Authenticated Users\" * /accepteula"
+echo -e "${Point} accesschk.exe -uwcqv \$user * /accepteula"
+echo -e ""
+ 
+
+echo -e "${Frame}###${End} ${Title}Applications Enum${End} ${Frame}###${End}"
+echo -e "${Point} dir /a \"C:\\\Program Files\""
+echo -e "${Point} dir /a \"C:\\\Program Files (x86)\""
+echo -e "${Point} accesschk.exe -uwdqs Users c:\\\ ${Comment}# find weak folder permissions${End}"
+echo -e "    accesschk.exe -uwdqs \"Authenticated Users\" c:\\"
+echo -e "    accesschk.exe -uwdqs \"Everyone\" c:\\"
+echo -e "${Point} accesschk.exe -uwqs Users c:\\\*.* ${Comment}# find weak file permissions${End}"
+echo -e "    accesschk.exe -uwqs \"Authenticated Users\" c:\\\*.*"
+echo -e "    accesschk.exe -uwdqs \"Everyone\" c:\\\*.*"
+echo -e ""
+
+
 echo -e "${Frame}###${End} ${Title}AlwaysInstallElevated${End} ${Frame}###${End}"
 echo -e "${Point} reg query HKCU\\\SOFTWARE\\\Policies\\\Microsoft\\\Windows\\\Installer /v AlwaysInstallElevated"
 echo -e "${Point} reg query HKLM\\\SOFTWARE\\\Policies\\\Microsoft\\\Windows\\\Installer /v AlwaysInstallElevated"
 echo -e ""
+
+
 
 
 
