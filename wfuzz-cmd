@@ -43,5 +43,3 @@ echo -e ""
 echo -e "${Frame}###${End} ${Title}LFI Parameter Bruteforce${End} ${Frame}###${End}"
 echo -e "${Point} wfuzz -u \$URL -d \"username=admin&password=FUZZ\" -w $wordlist --hh \$hide_size -c"
 echo -e ""
-
-

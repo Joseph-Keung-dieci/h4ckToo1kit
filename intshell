@@ -20,5 +20,3 @@ echo -e "export TERM=xterm-256color"
 echo -e "${Comment}[Ctrl+Z]${End}"
 echo -e "stty raw -echo; fg; reset"
 echo -e "stty rows 36 columns 141"
-
-

