@@ -16,5 +16,6 @@ echo "find / -uid 0 -perm -4000 -type f -exec ls -la {} 2>/dev/null \;"
 
 # Find Writable Files
 echo -e "${BYellow}Find Writable Files${NC}"
-echo "find / -perm -2 -type f -exec ls -la {} 2>/dev/null \;""
+echo "find / -perm -2 -type f -exec ls -la {} 2>/dev/null \;"
+
 
