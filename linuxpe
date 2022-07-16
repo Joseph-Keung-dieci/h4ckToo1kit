@@ -9,8 +9,8 @@ echo -e "${BYellow}Looting for Passwords${NC}"
 echo "grep --color=auto -rnw '/' -ie \"pass\" --color=always 2>/dev/null"
 
 
-# Find SUID binaries
-echo -e "${BYellow}Find SUID Binaries${NC}"
+# Find SUID Binaries
+echo -e "${BYellow}Find SUID Binaries${NC}" 
 echo "find / -uid 0 -perm -4000 -type f -exec ls -la {} 2>/dev/null \;"
 
 
@@ -19,3 +19,6 @@ echo -e "${BYellow}Find Writable Files${NC}"
 echo "find / -perm -2 -type f -exec ls -la {} 2>/dev/null \;"
 
 
+# Find Owner's Files
+echo -e "${BYellow}# Find Owner's Files${NC}"
+echo "find / -user \$user -exec ls -la {} 2>/dev/null \;"
