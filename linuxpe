@@ -6,7 +6,7 @@ NC='\033[0m'		 # No Color
 
 # Looting for Passwords
 echo -e "${BYellow}Looting for Passwords${NC}"
-echo -e "grep --color=auto -rnw '/' -ie \"pass\" --color=always 2>/dev/null"
+echo -e "grep --color=auto -rn '/' -ie \"pass\" --color=always 2>/dev/null"
 echo -e ""
 
 
@@ -24,5 +24,5 @@ echo -e ""
 
 # Find Owner's Files
 echo -e "${BYellow}# Find Owner's Files${NC}"
-echo "find / -user \$user -exec ls -la {} 2>/dev/null \;"
+echo -e "find / -user \$user -exec ls -la {} 2>/dev/null \;"
 echo -e ""
