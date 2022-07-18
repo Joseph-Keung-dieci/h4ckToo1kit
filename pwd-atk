@@ -12,8 +12,14 @@ Point='\033[0;31m[*]\033[0m'
 # wordlist location
 wordlist='/usr/share/wordlists/rockyou.txt'
 
+
 echo -e "${Frame}###${End} ${Title}Wordlist${End} ${Frame}###${End}"
 echo -e "$wordlist"
+echo -e ""
+
+
+echo -e "${Frame}###${End} ${Title}Create Wordlist${End} ${Frame}###${End}"
+echo -e "${Point} crunch 9 9 -t pattern%%"
 echo -e ""
 
 

@@ -30,6 +30,11 @@ echo -e "${Point} wfuzz -c -w /usr/share/SecLists/Fuzzing/User-Agents/UserAgents
 echo -e ""
 
 
+echo -e "${Frame}###${End} ${Title}Web Password Bruteforce${End} ${Frame}###${End}"
+echo -e "${Point} wfuzz -u \$URL -d \"username=admin&password=FUZZ\" -w $wordlist --hh \$hide_size -c"
+echo -e ""
+
+
 echo -e "${Frame}###${End} ${Title}HTTP Methods Bruteforce${End} ${Frame}###${End}"
 echo -e "${Point} wfuzz -c -w /usr/share/wfuzz/wordlist/general/http_methods.txt -X FUZZ \$URL"
 echo -e ""
