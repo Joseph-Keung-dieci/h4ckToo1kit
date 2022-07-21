@@ -38,6 +38,7 @@ echo -e ""
 
 echo -e "${Frame}###${End} ${Title}Smbclient${End} ${Frame}###${End}"
 echo -e "${Point} smbclient //\$IP/\$share"
+echo -e "${Point} smbclient //\$IP/\$share -U username%password"
 echo -e ""
 
 

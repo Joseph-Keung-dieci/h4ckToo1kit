@@ -6,9 +6,9 @@ NC='\033[0m'		 # No Color
 
 # Looting for Passwords
 echo -e "${BYellow}Looting for Passwords${NC}"
-echo -e "grep --color=auto -rn '/' -ie \"pass\" --color=always 2>/dev/null"
+echo -e "grep --color=auto -rn './' -ie \"pass\" --color=always 2>/dev/null"
 echo -e ""
-
+ 
 
 # Find SUID Binaries
 echo -e "${BYellow}Find SUID Binaries${NC}" 
