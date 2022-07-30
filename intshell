@@ -17,6 +17,7 @@ echo -e "python3 -c 'import pty;pty.spawn(\"/bin/bash\")' ${Comment}# python3${E
 echo -e "export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/game:/tmp"
 echo -e "export SHELL=bash"
 echo -e "export TERM=xterm-256color"
+echo -e "alias ll='ls -lsaht --color=auto'"
 echo -e "${Comment}[Ctrl+Z]${End}"
 echo -e "stty raw -echo; fg; reset"
 echo -e "stty rows 36 columns 141"

