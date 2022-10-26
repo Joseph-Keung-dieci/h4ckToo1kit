@@ -44,10 +44,13 @@ echo -e ""
 
 echo -e "${Frame}###${End} ${Title}Crackmapexec${End} ${Frame}###${End}"
 echo -e "${Link}https://wiki.porchetta.industries/${End}"
-echo -e "${Point} crackmapexec smb -u 'whatever' -p '' --shares \$IP"
-echo -e "${Point} crackmapexec smb -u '\$user' -p '\$password' --shares \$IP"
-echo -e "${Point} crackmapexec smb -u '\$user' -H '\$hash' --shares \$IP"
-echo -e "${Point} crackmapexec smb -u '\$user' -p \$wordlist --shares \$IP"
+echo -e "${Point} crackmapexec smb \$IP -u '' -p ''"
+echo -e "${Point} crackmapexec smb \$IP -u 'guest' -p ''"
+echo -e "${Point} crackmapexec smb \$IP -u 'guest' -p '' --shares"
+echo -e "${Point} crackmapexec smb \$IP -u '\$user' -p '\$password'"
+echo -e "${Point} crackmapexec smb \$IP -u '\$user' -H '\$hash'"
+echo -e "${Point} crackmapexec smb \$IP -u '\$user' -p \$pwdlist"
+echo -e "${Point} crackmapexec smb \$IP -u \$userlist -p \$pwdlist"
 echo -e ""
 
 
