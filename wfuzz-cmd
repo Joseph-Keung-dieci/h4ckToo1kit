@@ -11,22 +11,22 @@ Point='\033[0;31m[*]\033[0m'
 
 echo -e "${Frame}###${End} ${Title}Wordlist${End} ${Frame}###${End}"
 echo -e "${Link}https://github.com/danielmiessler/SecLists.git${End}"
-echo -e "Location: /usr/share/SecLists"
+echo -e "Location: /usr/share/seclists"
 echo -e ""
 
 
 echo -e "${Frame}###${End} ${Title}Directory Enumeration${End} ${Frame}###${End}"
-echo -e "${Point} wfuzz -c -w /usr/share/SecLists/Discovery/Web-Content/directory-list-2.3-medium.txt --hc 404 \$URL/FUZZ"
+echo -e "${Point} wfuzz -c -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt --hc 404 \$URL/FUZZ"
 echo -e ""
 
 
 echo -e "${Frame}###${End} ${Title}Sub-Domain Enumeration${End} ${Frame}###${End}"
-echo -e "${Point} wfuzz -c -w /usr/share/SecLists/Discovery/DNS/subdomains-top1million-20000.txt -H \"Host: FUZZ.\$HOST\" -u http://\$HOST -t 100"
+echo -e "${Point} wfuzz -c -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-20000.txt -H \"Host: FUZZ.\$HOST\" -u http://\$HOST -t 100"
 echo -e ""
 
 
 echo -e "${Frame}###${End} ${Title}User-Agent Bruteforce${End} ${Frame}###${End}"
-echo -e "${Point} wfuzz -c -w /usr/share/SecLists/Fuzzing/User-Agents/UserAgents.fuzz.txt -H \"User-Agent: FUZZ\" $URL"
+echo -e "${Point} wfuzz -c -w /usr/share/seclists/Fuzzing/User-Agents/UserAgents.fuzz.txt -H \"User-Agent: FUZZ\" $URL"
 echo -e ""
 
 
@@ -41,13 +41,13 @@ echo -e ""
 
 
 echo -e "${Frame}###${End} ${Title}LFI Parameter Bruteforce${End} ${Frame}###${End}"
-echo -e "${Point} wfuzz -c -w /usr/share/SecLists/Discovery/Web-Content/burp-parameter-names.txt --hc 404 \$URL?FUZZ=../../../../../../etc/passwd"
+echo -e "${Point} wfuzz -c -w /usr/share/seclists/Discovery/Web-Content/burp-parameter-names.txt --hc 404 \$URL?FUZZ=../../../../../../etc/passwd"
 echo -e ""
 
 
 echo -e "${Frame}###${End} ${Title}LFI files Bruteforce${End} ${Frame}###${End}"
-echo -e "${Point} wfuzz -c -w /usr/share/SecLists/Fuzzing/LFI/LFI-gracefulsecurity-linux.txt --hh 0 \$URL../../../../../../../FUZZ ${Comment}# linux${End}"
-echo -e "${Point} wfuzz -c -w /usr/share/SecLists/Fuzzing/LFI/LFI-gracefulsecurity-windows.txt --hh 0 \$URL../../../../../../../FUZZ ${Comment}# windows${End}"
+echo -e "${Point} wfuzz -c -w /usr/share/seclists/Fuzzing/LFI/LFI-gracefulsecurity-linux.txt --hh 0 \$URL../../../../../../../FUZZ ${Comment}# linux${End}"
+echo -e "${Point} wfuzz -c -w /usr/share/seclists/Fuzzing/LFI/LFI-gracefulsecurity-windows.txt --hh 0 \$URL../../../../../../../FUZZ ${Comment}# windows${End}"
 echo -e ""
 
 

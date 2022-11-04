@@ -21,10 +21,10 @@ echo -e "${Point} impacket-psexec domain.local/\$user:\$password@\$IP"
 echo -e ""
 
 
-echo -e "${Frame}###${End} ${Title}Impacket-WMIExec${End} ${Frame}###${End}"
-echo -e "${Comment}Impacket’s wmiexec.py uses the Windows Management Instrumentation (WMI) to give you an interactive shell on the Windows host.${End}"
-echo -e "${Point} impacket-wmiexec domain.local/\$user:\$password@\$IP"
-echo -e ""
+# echo -e "${Frame}###${End} ${Title}Impacket-WMIExec${End} ${Frame}###${End}"
+# echo -e "${Comment}Impacket’s wmiexec.py uses the Windows Management Instrumentation (WMI) to give you an interactive shell on the Windows host.${End}"
+# echo -e "${Point} impacket-wmiexec domain.local/\$user:\$password@\$IP"
+# echo -e ""
 
 
 echo -e "${Frame}###${End} ${Title}Impacket-GetNPUsers${End} ${Frame}###${End}"
