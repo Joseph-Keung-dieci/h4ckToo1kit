@@ -17,12 +17,16 @@ echo -e ""
 
 echo -e "${Frame}###${End} ${Title}Directory Enumeration${End} ${Frame}###${End}"
 echo -e "${Point} wfuzz -c -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt --hc 404 \$URL/FUZZ"
+echo -e "${Point} gobuster -u \$URL dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -b \"403,404\" -t 40 -e -x \"html,php,txt,config,jsp,asp,aspx\" -k"
 echo -e ""
+
 
 
 echo -e "${Frame}###${End} ${Title}Sub-Domain Enumeration${End} ${Frame}###${End}"
-echo -e "${Point} wfuzz -c -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-20000.txt -H \"Host: FUZZ.\$HOST\" -u http://\$HOST -t 100"
+echo -e "${Point} wfuzz -c -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-20000.txt -H \"Host: FUZZ.\$HOST\" -u \$URL -t 100"
+echo -e "${Point} ffuf -c -w /usr/share/seclists/Discovery/DNS/bitquark-subdomains-top100000.txt -H \"Host: FUZZ.\$HOST\" -u \$URL -fc 301"
 echo -e ""
+
 
 
 echo -e "${Frame}###${End} ${Title}User-Agent Bruteforce${End} ${Frame}###${End}"
