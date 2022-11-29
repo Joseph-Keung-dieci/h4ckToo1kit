@@ -57,8 +57,10 @@ echo -e ""
 
 
 echo -e "${Frame}###${End} ${Title}Crack Passphrase${End} ${Frame}###${End}"
-echo -e "${Point} ssh2john id_rsa > id_rsa_crack"
-echo -e "    john --wordlist=$wordlist id_rsa_crack"
+echo -e "${Point} ssh2john id_rsa > id_rsa.john"
+echo -e "    john --wordlist=$wordlist id_rsa.john"
+echo -e "${Point} pdf2john xxx.pdh > xxx.john"
+echo -e "    john --wordlist=$wordlist xxx.john"
 echo -e ""
 
 

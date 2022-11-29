@@ -54,7 +54,3 @@ echo -e "${Point} wfuzz -c -w /usr/share/seclists/Fuzzing/LFI/LFI-gracefulsecuri
 echo -e "${Point} wfuzz -c -w /usr/share/seclists/Fuzzing/LFI/LFI-gracefulsecurity-windows.txt --hh 0 \$URL../../../../../../../FUZZ ${Comment}# windows${End}"
 echo -e ""
 
-
-echo -e "${Frame}###${End} ${Title}LFI Parameter Bruteforce${End} ${Frame}###${End}"
-echo -e "${Point} wfuzz -u \$URL -d \"username=admin&password=FUZZ\" -w \$wordlist --hh \$hide_size -c"
-echo -e ""
