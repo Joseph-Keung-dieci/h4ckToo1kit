@@ -29,7 +29,9 @@ echo -e "cp /usr/share/webshells/php/php-reverse-shell.php ."
 echo -e ""
 
 
-
+echo -e "${Frame}###${End} ${Title}Fire up server${End} ${Frame}###${End}"
+echo -e "sudo python3 -m http.server 80 --directory ."
+echo -e ""
 
 
 echo -e "${Frame}###${End} ${Title}Linux Post Enum${End} ${Frame}###${End}"
