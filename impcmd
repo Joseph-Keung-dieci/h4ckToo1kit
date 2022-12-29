@@ -18,8 +18,13 @@ echo -e ""
 echo -e "${Frame}###${End} ${Title}Impacket-PsExec${End} ${Frame}###${End}"
 echo -e "${Comment}Impacket's psexec.py offers psexec like functionality and will give you an interactive shell on the Windows host.${End}"
 echo -e "${Point} impacket-psexec domain.local/\$user:\$password@\$IP"
+echo -e "${Point} KRB5CCNAME=Administrator.ccache impacket-psexec -k -no-pass domain.local"
 echo -e ""
 
+
+echo -e "${Frame}###${End} ${Title}Impacket-getST${End} ${Frame}###${End}"
+echo -e ""
+echo -e ""
 
 # echo -e "${Frame}###${End} ${Title}Impacket-WMIExec${End} ${Frame}###${End}"
 # echo -e "${Comment}Impacket's wmiexec.py uses the Windows Management Instrumentation (WMI) to give you an interactive shell on the Windows host.${End}"
