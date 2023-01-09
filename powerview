@@ -1,0 +1,72 @@
+#!/bin/bash
+
+# display common commands for PowerView
+
+Frame='\033[0;32m'   # Green
+Link='\033[0;35m'  	 # Purple
+Title='\033[1;33m' 	 # Bold Yellow
+Comment='\033[0;36m' # Cyan
+End='\033[0m'		 # No Color
+Point='\033[0;31m[*]\033[0m'
+
+
+echo -e "${Frame}###${End} ${Title}Get/Import Module${End} ${Frame}###${End}"
+echo -e "${Point} cp /usr/share/windows-resources/powersploit/Recon/PowerView.ps1 ."
+echo -e "${Point} Import-Module ./PowerView.ps1"
+echo -e ""
+
+
+echo -e "${Frame}###${End} ${Title}Basic Domain Information${End} ${Frame}###${End}"
+echo -e "${Point} Get-NetDomain"
+echo -e ""
+
+
+echo -e "${Frame}###${End} ${Title}Users Info Enumeration${End} ${Frame}###${End}"
+echo -e "${Point} Get-NetUser -UACFilter NOT_ACCOUNTDISABLE | select samaccountname, description, pwdlastset, logoncount, badpwdcount ${Comment}# Basic user enabled info${End}"
+echo -e "${Point} Get-NetUser -LDAPFilter '(sidHistory=*)' ${Comment}# Find users with sidHistory set${End}"
+echo -e "${Point} Get-NetUser -PreauthNotRequired ${Comment}# ASREPRoastable users${End}"
+echo -e "${Point} Get-NetUser -SPN ${Comment}# Kerberoastable users${End}"
+echo -e "${Point} Get-NetUser | select -ExpandProperty samaccountname ${Comment}# List all usernames${End}"
+echo -e "${Point} Get-NetUser -UserName \$username ${Comment}# Get info about a user${End}"
+echo -e "${Point} Get-NetUser -properties name, description ${Comment}# Get all descriptions${End}"
+echo -e "${Point} Find-UserField -SearchField Description -SearchTerm \"built\" ${Comment}# Search account with \"something\" in a parameter${End}"
+echo -e ""
+
+
+echo -e "${Frame}###${End} ${Title}Groups Info Enumeration${End} ${Frame}###${End}"
+echo -e "${Point} Get-NetGroup | select samaccountname, admincount, description ${Comment}# Basic group info${End}"
+echo -e "${Point} Get-DomainObjectAcl -SearchBase 'CN=AdminSDHolder,CN=System,DC=\$domain,DC=\$local' | %{ \$_.SecurityIdentifier } | Convert-SidToName ${Comment}# Get AdminSDHolders${End}"
+echo -e ""
+
+
+echo -e "${Frame}###${End} ${Title}Computers Info Enumeration${End} ${Frame}###${End}"
+echo -e "${Point} Get-NetComputer | select samaccountname, operatingsystem ${Comment}# Basic computers info${End}"
+echo -e "${Point} Get-NetComputer -TrustedToAuth | select samaccountname ${Comment}# Find computers with Constrained Delegation${End}"
+echo -e "${Point} Get-DomainGroup -AdminCount | Get-DomainGroupMember -Recurse | ?{\$_.MemberName -like '*$'} ${Comment}# Find any machine accounts in privileged groups${End}"
+echo -e ""
+
+
+echo -e "${Frame}###${End} ${Title}Computers Info Enumeration${End} ${Frame}###${End}"
+echo -e "${Point} Get-DomainPolicy ${Comment}# Get info about the current domain${End}"
+echo -e "${Point} (Get-DomainPolicy).\"KerberosPolicy\" ${Comment}# Kerberos tickets info(MaxServiceAge)${End}"
+echo -e "${Point} (Get-DomainPolicy).\"System Access\" ${Comment}# Password policy${End}"
+echo -e "${Point} (Get-DomainPolicy).\"PrivilegeRights\" ${Comment}# Check your privileges${End}"
+echo -e ""
+
+
+echo -e "${Frame}###${End} ${Title}Logon and Sessions${End} ${Frame}###${End}"
+echo -e "${Point} Get-NetLoggedon -ComputerName \$servername ${Comment}# Get net logon users at the moment in a computer (need admins rights on target)${End}"
+echo -e "${Point} Get-NetSession -ComputerName \$servername${Comment}# Get active sessions on the host${End}"
+echo -e "${Point} Get-LoggedOnLocal -ComputerName \$servername${Comment}# Get locally logon users at the moment (need remote registry (default in server OS))${End}"
+echo -e "${Point} Get-LastLoggedon -ComputerName \$servername${Comment}# Get last user logged on (needs admin rigths in host)${End}"
+echo -e "${Point} Get-NetRDPSession -ComputerName \$servername${Comment}# List RDP sessions inside a host (needs admin rights in host)${End}"
+echo -e ""
+
+
+echo -e "${Frame}###${End} ${Title}GPOs & OUs${End} ${Frame}###${End}"
+echo -e "${Point} Get-NetGPO ${Comment}# Get all policies with details${End}"
+echo -e "${Point} Get-NetGPO | select displayname ${Comment}# Get the names of the policies${End}"
+echo -e "${Point} Get-NetGPO -ComputerName \$servername ${Comment}# Get the policy applied in a computer${End}"
+echo -e "${Point} Get-GPPermission -Guid \$UGID -TargetType User -TargetName \$username ${Comment}# check what permissions the specified user have on a specific GPO by passing its GUID${End}"
+echo -e ""
+
