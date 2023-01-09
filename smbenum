@@ -39,7 +39,10 @@ echo -e ""
 echo -e "${Frame}###${End} ${Title}Smbclient${End} ${Frame}###${End}"
 echo -e "${Point} smbclient //\$IP/\$share"
 echo -e "${Point} smbclient //\$IP/\$share -U username%password"
+echo -e "${Point} smbclient //\$IP/\$share -U username%password -c 'recurse;ls'"
+echo -e "${Point} smbclient //\$IP/\$share -U username%password -c 'recurse ON;prompt OFF;lcd ./\$share;mget *"
 echo -e ""
+
 
 
 echo -e "${Frame}###${End} ${Title}Crackmapexec${End} ${Frame}###${End}"
