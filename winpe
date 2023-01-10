@@ -19,7 +19,7 @@ echo -e "${Point} set PATH=%PATH%;C:\\\Users\\\Public\\\Documents"
 echo -e ""
 
 
-echo -e "${Frame}###${End} ${Title}System Info Enum${End} ${Frame}###${End}"
+echo -e "${Frame}###${End} ${Title}References${End} ${Frame}###${End}"
 echo -e "${Point} systeminfo | findstr /B /C:\"OS Name\" /C:\"OS Version\" ${Comment}# os name & version${End}"
 echo -e "${Point} wmic os get osarchitecture || echo %PROCESSOR_ARCHITECTURE% ${Comment}# system architecture${End}"
 echo -e "${Point} wmic qfe get Caption,Description,HotFixID,InstalledOn ${Comment}# patches${End}"
