@@ -17,7 +17,9 @@ echo -e ""
 
 echo -e "${Frame}###${End} ${Title}CMS Enumeration${End} ${Frame}###${End}"
 echo -e "${Point} wpscan --url \$URL --enumerate ap,cb,dbe"
-echo -e "${Point} wpscan --url \$URL --passwords /usr/share/wordlists/rockyou.txt"
+echo -e "${Point} wpscan --url \$URL --enumerate u ${Comment}# enum users${End}"
+echo -e "${Point} wpscan --url \$URL --passwords /usr/share/wordlists/rockyou.txt [--threads 50]"
+echo -e "${Point} wpscan --url \$URL --passwords /usr/share/wordlists/rockyou.txt --username \$user"
 echo -e ""
 
 

