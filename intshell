@@ -22,3 +22,13 @@ echo -e "${Comment}[Ctrl+Z]${End}"
 echo -e "stty raw -echo; fg; reset"
 echo -e "stty rows $(echo $Size | awk {'print $1'}) columns $(echo $Size | awk {'print $2'})"
 echo -e "stty rows 48 columns 188"
+
+echo -e ""
+# perl -e "perl -e 'exec \"/bin/sh\";'"
+# perl -e "perl: exec \"/bin/sh\";"
+# perl -e "ruby: exec \"/bin/sh\";"
+
+
+echo -e ""
+
+

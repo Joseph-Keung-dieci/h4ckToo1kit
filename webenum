@@ -26,8 +26,8 @@ echo -e ""
 
 echo -e "${Frame}###${End} ${Title}Directory Enumeration${End} ${Frame}###${End}"
 echo -e "${Point} wfuzz -c -w /usr/share/seclists/Discovery/Web-Content/raft-medium-directories-lowercase.txt --hc 404 \$URL/FUZZ"
-echo -e "${Point} gobuster -u \$URL dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -b \"403,404\" -t 50 -e -x \"html,php,txt,config,jsp,asp,aspx\" -k"
-echo -e "${Point} ffuf -u \$URL/FUZZ -w /usr/share/wordlists/dirb/big.txt -e \".txt,.html,.php\" -c -fc 403"
+echo -e "${Point} gobuster -u \$URL dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -b \"403,404\" -t 50 -e -x \"html,php,txt,config,zip,jsp,asp,aspx\" -k"
+echo -e "${Point} ffuf -u \$URL/FUZZ -w /usr/share/wordlists/dirb/big.txt -e \".txt,.html,.php,.zip\" -c -fc 403"
 echo -e ""
 
 

