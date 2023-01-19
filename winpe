@@ -122,7 +122,7 @@ echo -e ""
 
 
 echo -e "${Frame}###${End} ${Title}SeChangeNotifyPrivilege${End} ${Frame}###${End}"
-echo -e "${Link}https://ghttps://github.com/CsEnox/SeManageVolumeExploit/releases/tag/public${End}"
+echo -e "${Link}https://github.com/CsEnox/SeManageVolumeExploit/releases/tag/public${End}"
 echo -e "${Point} .\SeManageVolumeExploit.exe"
 echo -n "    C:\Windows\System32\wbem\tzres.dll" && echo -e "${Comment} # replace the dll to payload${End}"
 echo -e "    systeminfo ${Comment}# trigger payload${End}"
