@@ -41,6 +41,7 @@ echo -e "${Point} smbclient //\$IP/\$share"
 echo -e "${Point} smbclient //\$IP/\$share -U username%password"
 echo -e "${Point} smbclient //\$IP/\$share -U username%password -c 'recurse;ls'"
 echo -e "${Point} smbclient //\$IP/\$share -U username%password -c 'recurse ON;prompt OFF;lcd ./\$share;mget *' -t 1000"
+echo -e "${Point} smbcacls //\$IP/\$share -U username%password folder/folder"
 echo -e ""
 
 
